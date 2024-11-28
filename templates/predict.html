@@ -1,0 +1,713 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Predict - Iqra apps </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+ <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,700&swap" rel="stylesheet">  
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box; font-family:"Titillium web", sans-serif; }
+a{text-decoration:none; }
+ul,li{list-style:none; }
+#logo { display:inline-block; width:15rem; padding:0.5rem 0 }
+html{scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<style>
+#navdiv { box-shadow:0 1px 3px 3px #ddd; position:sticky; top:0; z-index:2; background:#fff; }
+#navdiv .inner { display:flex; max-width:1200px; margin:0 auto; justify-content:space-between; align-items:center; }
+#mainnav li { display:inline-block; }
+#mainnav a { display:block; padding:0.5rem 1.2rem; font-weight:700; color:#446; border:1px solid transparent }
+#mainnav a:hover { border-color:tomato; color:tomato; }
+
+#mainnav a.current { background:#000; color:#fff; border-color:#000 }
+#mainnav { display:flex; align-items:center; flex-direction:row; }
+
+#login { background:tomato; color:#fff!important; border:1px solid tomato; margin-left:1rem;  }
+</style>
+
+<div id="navdiv"><div class="inner">
+<img id="logo" src="https://shinemedia.com.ng/iqraml/img/logo.png" />
+<nav id="mainnav">
+<ul>
+<li><a href="./"> Home </a></li>
+<li><a href="./about"> About Us </a></li>
+<li><a href="./predict" class="current"> Predict </a></li>
+<li><a href="./explore"> Explore </a></li>
+<li><a href="./process"> Proceedure </a></li>
+<li><a href="./summary"> Summary </a></li>
+<li></li>
+</ul>
+</nav>
+
+
+</div></div>
+
+
+<style>
+#pagetitle { background-size:cover; background-position:center; background-image:url(https://shinemedia.com.ng/iqraml/img/machine.jpg); }
+#pagetitle > div { background:rgba(0,0,0,0.65); padding:6rem 1rem; color:#fff; font-weight:700; }
+#pagetitle .inner { margin:0 auto; max-width:1000px; }
+#pagetitle a { color:tomato; display:inline-block; padding-right:0.5rem; }
+#pagetitle span { display:inline-block; padding-left:0.5rem; }
+#pagetitle a:hover { text-decoration:underline; }
+</style>
+<div id="pagetitle"><div>
+<div class="inner">
+
+<h1> Predict </h1>
+<section><a href="./"> Home </a> &raquo; <span> Predict </span></section>
+
+</div>
+</div></div>
+
+
+<style>
+#predict { font-size:120%; }
+#predict .inner { margin:0 auto; max-width:1000px; padding-top:2rem; }
+
+</style>
+
+<style>
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+    color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F87DA9;
+    background: tomato;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+   -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+   background-color: #053a5f;
+   border-radius: 0.5rem;
+   height: 0.5rem;  
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+   appearance: none;
+   margin-top: -12px; /* Centers thumb on the track */
+
+   /*custom styles*/
+   background-color: #5cd5eb;
+   height: 2rem;
+   width: 1rem;
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {   
+  border: 1px solid #053a5f;
+  outline: 3px solid #053a5f;
+  outline-offset: 0.125rem; 
+}
+
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+   background-color: #053a5f;
+   border-radius: 0.5rem;
+   height: 0.5rem;
+}
+
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+   border: none; /*Removes extra border that FF applies*/
+   border-radius: 0; /*Removes default border-radius that FF applies*/
+
+   /*custom styles*/
+   background-color: #5cd5eb;
+   height: 2rem;
+   width: 1rem;
+}
+
+input[type="range"]:focus::-moz-range-thumb {
+  border: 1px solid #053a5f;
+  outline: 3px solid #053a5f;
+  outline-offset: 0.125rem; 
+}
+
+
+
+
+</style>
+
+
+<style>
+.three header { color:#446; font-weight:700; font-size:140%; }
+.three { display:flex; align-items:flex-start; flex-flow: row wrap;bbn  }
+.three > div { width:30%; padding:1.2rem; margin:1.2rem 1.5%; box-shadow:0 0 5px 3px #efefef; }
+
+
+.two header { color:#446; font-weight:700; font-size:140%; }
+.two { display:flex; align-items:flex-start; }
+.two > div { width:46%; padding:1.2rem; margin:1.2rem 2%; box-shadow:0 0 5px 3px #efefef; }
+</style>
+
+<div id="predict">
+<div class="inner">
+
+<form method="post" id="MLForm" action="" >
+<section class="three">
+
+<div>
+<header> Gender </header>
+  <p>
+    <input type="radio" id="gender1" name="gender" value="Male" checked/>
+    <label for="gender1">Male</label>
+  </p>
+  <p>
+    <input type="radio" id="gender2" name="gender" value="Female" />
+    <label for="gender2">Female</label>
+  </p>
+</div>
+
+
+<div>
+<header> Senior Citizen </header>
+  <p>
+    <input type="radio" id="seniorcitizen1" name="seniorcitizen" value="Yes" checked>
+    <label for="seniorcitizen1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="seniorcitizen2" name="seniorcitizen" value="No" >
+    <label for="seniorcitizen2">No</label>
+  </p>
+</div>
+
+
+<div>
+<header> Partner </header>
+  <p>
+    <input type="radio" id="partner1" name="partner"  value="Yes" checked>
+    <label for="partner1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="partner2" name="partner" value="No">
+    <label for="partner2">No</label>
+  </p>
+</div>
+
+</section>
+
+
+<section class="three">
+
+<div>
+<header> Dependents </header>
+  <p>
+    <input type="radio" id="dependents1" name="dependents" value="Yes" checked/>
+    <label for="dependents1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="dependents2" name="dependents" value="No" >
+    <label for="dependents2">No</label>
+  </p>
+</div>
+
+
+<div>
+<header> Phone Service </header>
+  <p>
+    <input type="radio" id="phoneservice1" name="phoneservices" value="Yes" checked/>
+    <label for="phoneservice1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="phoneservice2" name="phoneservices" value="No" >
+    <label for="phoneservice2">No</label>
+  </p>
+</div>
+
+
+<div>
+<header> Multiple Lines </header>
+  <p>
+    <input type="radio" id="multiplelines1" name="multiplelines"  value="Yes" checked>
+    <label for="multiplelines1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="multiplelines2" name="multiplelines" value="No">
+    <label for="multiplelines2">No</label>
+  </p>
+</div>
+
+</section>
+
+
+<section class="three">
+
+<div>
+<header> Online Security </header>
+  <p>
+    <input type="radio" id="onlinesecurity1" name="onlinesecurity" value="Yes" checked>
+    <label for="onlinesecurity1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="onlinesecurity2" name="onlinesecurity" value="No" >
+    <label for="onlinesecurity2">No</label>
+  </p>
+</div>
+
+
+
+<div>
+<header> Online Backup </header>
+  <p>
+    <input type="radio" id="onlinebackup1" name="onlinebackup" value="Yes" checked>
+    <label for="onlinebackup1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="onlinebackup2" name="onlinebackup" value="No" >
+    <label for="onlinebackup2">No</label>
+  </p>
+</div>
+
+
+<div>
+<header> Device Protection </header>
+  <p>
+    <input type="radio" id="deviceprotection1" name="deviceprotection" value="Yes" checked>
+    <label for="deviceprotection1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="deviceprotection2" name="deviceprotection" value="No" >
+    <label for="deviceprotection2">No</label>
+  </p>
+</div>
+
+
+</section>
+
+<section class="three">
+
+<div>
+<header> Tech Support </header>
+  <p>
+    <input type="radio" id="techsupport1" name="techsupport" value="Yes" checked>
+    <label for="techsupport1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="techsupport2" name="techsupport" value="No" >
+    <label for="techsupport2">No</label>
+  </p>
+</div>
+
+
+<div>
+<header> Streaming TV </header>
+  <p>
+    <input type="radio" id="streamingtv1" name="streamingtv"  value="Yes" checked>
+    <label for="streamingtv1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="streamingtv2" name="streamingtv" value="No">
+    <label for="streamingtv2">No</label>
+  </p>
+</div>
+
+
+<div>
+<header> Streaming Movies </header>
+  <p>
+    <input type="radio" id="streamingmovies1" name="streamingmovies" value="Yes" checked>
+    <label for="streamingmovies1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="streamingmovies2" name="streamingmovies" value="No" >
+    <label for="streamingmovies2">No</label>
+  </p>
+</div>
+
+</section>
+
+<section class="three">
+
+
+<div>
+<header> Paperless Billing </header>
+  <p>
+    <input type="radio" id="paperlessbilling1" name="paperlessbilling"  value="Yes" checked>
+    <label for="paperlessbilling1">Yes</label>
+  </p>
+  <p>
+    <input type="radio" id="paperlessbilling2" name="paperlessbilling" value="No">
+    <label for="paperlessbilling2">No</label>
+  </p>
+  
+  <p>
+  <b> &nbsp; </b>
+  </p>
+</div>
+
+
+<div>
+<header> Contract </header>
+  <p>
+    <input type="radio" id="contract1" name="contract" value="Month-to-month" checked>
+    <label for="contract1">Month-to-month</label>
+  </p>
+  <p>
+    <input type="radio" id="contract2" name="contract" value="One year" >
+    <label for="contract2">One year</label>
+  </p>
+  <p>
+    <input type="radio" id="contract3" name="contract" value="Two year" >
+    <label for="contract3">Two year</label>
+  </p>
+</div>
+
+
+<div>
+<header> Internet Service </header>
+  <p>
+    <input type="radio" id="internetservice1" name="internetservice" value="DSL" checked>
+    <label for="internetservice1">DSL</label>
+  </p>
+  <p>
+    <input type="radio" id="internetservice2" name="internetservice" value="Fiber optic" >
+    <label for="internetservice2">Fiber optic</label>
+  </p>
+  <p>
+    <input type="radio" id="internetservice3" name="internetservice" value="No" >
+    <label for="internetservice3">No</label>
+  </p>
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<!--
+
+
+Gender = Male, Female
+Senior citizen = Yes, No,
+Partner = yes, no
+
+Dependents = yes, no
+Phone service = Yes, no
+Multiple lines = yes, no
+
+
+Online Security = Yes, No
+Online Backup = Yes, No
+Device Protection = Yes, No
+
+Tech Support = Yes, No
+Streaming TV = Yes, No
+
+Streaming Movies = Yes, No
+Paperless Billing = Yes, No
+
+
+Internet service = DSL, Fiber Optic, No
+Payment Methond = Mailed Check, Electronic Check, Bank Transfer(automatic), Credit Card(automatic)
+
+
+
+
+
+Total Charges = 0 to 10,000, Default = 500
+CLTV = 0 TO 7000 Default = 300
+
+
+-->
+
+
+<section class="three">
+
+<div>
+<header> Payment Method </header>
+  <p>
+    <input type="radio" id="paymentmethod1" name="paymentmethod" value="Mailed check" checked>
+    <label for="paymentmethod1">Mailed check</label>
+  </p>
+  <p>
+    <input type="radio" id="paymentmethod2" name="paymentmethod" value="Electronic check" >
+    <label for="paymentmethod2">Electronic check</label>
+  </p>
+  <p>
+    <input type="radio" id="paymentmethod3" name="paymentmethod" value="Bank transfer (automatic)" >
+    <label for="paymentmethod3">Bank transfer (automatic))</label>
+  </p>
+  
+  <p>
+    <input type="radio" id="paymentmethod4" name="paymentmethod" value="Credit card (automatic)" >
+    <label for="paymentmethod4">Credit card (automatic)</label>
+  </p>
+</div>
+
+
+<div>
+<header> Tenure Months </header><br>
+<smaller>Min : <b> 0 </b>, Max : <b> 100 </b><br><br></smaller>
+  <p>
+   
+  <input type="number" id="tenuremonths" value="50" step="1" name="tenuremonths" min="0" max="100" />
+  </p>
+ 
+</div>
+
+
+<div>
+<header> Monthly Charges </header><br>
+<smaller>Min : <b> 0 </b>, Max : <b> 200 </b><br><br></smaller>
+  <p>
+   
+  <input type="number" id="monthlycharges" value="60" step="1" name="monthlycharges" min="0" max="200" />
+  </p>
+ 
+</div>
+
+</section>
+
+<section class="three">
+
+<div>
+<header> Total Charges </header><br>
+<smaller>Min : <b> 0 </b>, Max : <b> 10,000 </b><br><br></smaller>
+  <p>
+   
+  <input type="number" id="totalcharges" value="500" step="1" name="totalcharges" min="0" max="10000" />
+  </p>
+ 
+</div>
+
+
+<div>
+<header> CLTV </header><br>
+<smaller>Min : <b> 0 </b>, Max : <b> 7000 </b><br><br></smaller>
+  <p>
+   
+  <input type="number" id="cltv" value="300" step="1" name="cltv" min="0" max="7000" />
+  </p>
+ 
+</div>
+
+</section>
+
+
+<style>
+[type="number"]{ width:100%; outline:none; border:1px solid #bbb; padding:0.5rem; border-radius:4px }
+</style>
+
+
+<div style="text-align:center;padding:1rem;"><button style="border-radius:4px;padding:0.5rem 1.2rem;border:1px solid tomato; font-size:120%; display:inline-block; color:tomato; font-weight:700;background:#fff" id="submit"> Predict </button> </div>
+
+</form>
+
+<p id="report">
+
+&nbsp;
+
+</p>
+
+<style>
+#report { text-align:center; font-weight:350%; color:#666; padding:2rem 1rem; margin:3rem 0; border:1px solid #aaa; border-radius:10px; font-weight:700; }
+
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.rotating {
+  -webkit-animation: rotating 1s linear infinite;
+  -moz-animation: rotating 1s linear infinite;
+  -ms-animation: rotating 1s linear infinite;
+  -o-animation: rotating 1s linear infinite;
+  animation: rotating 1s linear infinite;
+}
+
+
+
+</style>
+
+</div>
+</div>
+
+
+<br><br><br>
+
+
+<style>
+#footer { background:#000; padding:2rem 0.5rem; }
+#footer .inner { display:flex; flex-flow:row wrap; margin:0 auto; max-width:1200px; align-items:stretch; }
+#footer .inner > section { width:22%; margin:1.2rem 1.5%; }
+
+#footer header { color:#fff; font-weight:700; padding:0.5rem 0; font-size:110%; }
+#footer .border { width:3.47rem; height:3px; background:tomato; }
+
+#footer p { line-height:1.6; color:#e3e3e3; padding:1.5rem 0 }
+
+</style>
+
+<div id="footer">
+<div class="inner">
+
+<section>
+<header> About IQRASOFT </header>
+<div class="border"></div>
+<p>
+We're IQRA APP an international registered company which has over 5 (Five) operational department in the ess world and operating successful with the  since the year 2019 till date.
+</p>
+</section>
+
+<section>
+<header> Resources </header>
+<div class="border"></div>
+</section>
+
+<section>
+<header> Other Models </header>
+<div class="border"></div>
+</section>
+
+<section>
+<header> Contact Us </header>
+<div class="border"></div>
+</section>
+
+</div>
+</div>
+
+<style>
+#credits { background:#000; padding:1.3rem 0.5rem; }
+#credits .inner { max-width:1200px; margin:0 auto; color:#e3e3e3; display:flex; justify-content:space-between; align-items:center; }
+
+#credits .smi { display:flex; }
+#credits .smi a { display:inline-block; padding:0 0.5rem;  }
+#credits .smi img { display:block; width:1.25rem; }
+</style>
+<div id="credits"><div class="inner">
+<section> &copy; 2023 Iqra Apps </section>
+<section class="smi">
+
+<a href="#"><img src="https://shinemedia.com.ng/iqraml/svgs/facebook.svg" alt="" /></a>
+<a href="#"><img src="https://shinemedia.com.ng/iqraml/svgs/youtube.svg" alt="" /></a>
+<a href="#"><img src="https://shinemedia.com.ng/iqraml/svgs/tiktok.svg" alt="" /></a>
+<a href="#"><img src="https://shinemedia.com.ng/iqraml/svgs/instagram.svg" alt="" /></a>
+<a href="#"><img src="https://shinemedia.com.ng/iqraml/svgs/linkedin.svg" alt="" /></a>
+<a href="#"><img src="https://shinemedia.com.ng/iqraml/svgs/twitter.svg" alt="" /></a>
+
+</section>
+</div></div>
+
+<script>
+
+let submit = document.querySelector("#submit");
+let MyForm = document.querySelector("#MLForm");
+let report = document.querySelector("#report");
+
+
+MLForm.addEventListener('submit',function(e){
+e.preventDefault();
+
+report.innerHTML = "Analyzing Data <i class='bx bx-loader-alt rotating'></i>"
+
+let MyPostData = ( new FormData(MyForm) );
+let fdata = {}
+for( [key,value] of MyPostData ) fdata[key] = value;
+
+fetch('./machineresponse', {
+  method: 'POST',
+  headers: { "Content-type": "application/json"},
+  body: JSON.stringify(fdata)
+  
+}).then( a=> a.json() ).then( function(e){ report.innerHTML = e['message'] } ).catch( e=>alert("Error encountered " + "Something went wrong" ))
+
+});
+
+
+
+</script>
+
+</body>
+
+
+</html>

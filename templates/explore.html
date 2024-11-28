@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Explore - Iqra apps </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+ <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,700&swap" rel="stylesheet">  
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box; font-family:"Titillium web", sans-serif; }
+a{text-decoration:none; }
+ul,li{list-style:none; }
+#sitename { font-size:300%; font-weight:700; color:tomato; text-shadow:0 0 3px #000; }
+html{scroll-behavior:smooth; }
+#logo { display:inline-block; width:15rem; padding:0.5rem 0 }
+</style>
+</head>
+
+<body>
+
+<style>
+#navdiv { box-shadow:0 1px 3px 3px #ddd; position:sticky; top:0; z-index:2; background:#fff; }
+#navdiv .inner { display:flex; max-width:1200px; margin:0 auto; justify-content:space-between; align-items:center; }
+#mainnav li { display:inline-block; }
+#mainnav a { display:block; padding:0.5rem 1.2rem; font-weight:700; color:#446; border:1px solid transparent }
+#mainnav a:hover { border-color:tomato; color:tomato; }
+
+#mainnav a.current { background:#000; color:#fff; border-color:#000 }
+#mainnav { display:flex; align-items:center; flex-direction:row; }
+
+#login { background:tomato; color:#fff!important; border:1px solid tomato; margin-left:1rem;  }
+</style>
+
+<div id="navdiv"><div class="inner">
+<img id="logo" src="{{ url_for('static',filename='img/logo.png')}}" />
+<nav id="mainnav">
+<ul>
+<li><a href="./"> Home </a></li>
+<li><a href="./about"> About Us </a></li>
+<li><a href="./predict"> Predict </a></li>
+<li><a href="./explore" class="current"> Explore </a></li>
+<li><a href="./process"> Proceedure </a></li>
+<li><a href="./summary"> Summary </a></li>
+<li></li>
+</ul>
+</nav>
+
+
+</div></div>
+
+<style>
+#pagetitle { background-size:cover; background-position:center; background-image:url({{ url_for('static',filename='img/machine.jpg')}}); }
+#pagetitle > div { background:rgba(0,0,0,0.65); padding:6rem 1rem; color:#fff; font-weight:700; }
+#pagetitle .inner { margin:0 auto; max-width:1000px; }
+#pagetitle a { color:tomato; display:inline-block; padding-right:0.5rem; }
+#pagetitle span { display:inline-block; padding-left:0.5rem; }
+#pagetitle a:hover { text-decoration:underline; }
+</style>
+<div id="pagetitle"><div>
+<div class="inner">
+
+<h1> Explore </h1>
+<section><a href="./"> Home </a> &raquo; <span> Explore </span></section>
+
+</div>
+</div></div>
+
+<!-- Tableau embedded code -->
+
+<div class='tableauPlaceholder' id='viz1693844883950' style='position: relative'><noscript><a href='#'><img alt='Chun Data ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ch&#47;Chun&#47;ChunData&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Chun&#47;ChunData' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ch&#47;Chun&#47;ChunData&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1693844883950');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1720px';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1720px';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='2377px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+
+
+<style>
+#footer { background:#000; padding:2rem 0.5rem; }
+#footer .inner { display:flex; flex-flow:row wrap; margin:0 auto; max-width:1200px; align-items:stretch; }
+#footer .inner > section { width:22%; margin:1.2rem 1.5%; }
+
+#footer header { color:#fff; font-weight:700; padding:0.5rem 0; font-size:110%; }
+#footer .border { width:3.47rem; height:3px; background:tomato; }
+
+#footer p { line-height:1.6; color:#e3e3e3; padding:1.5rem 0 }
+
+</style>
+
+<div id="footer">
+<div class="inner">
+
+<section>
+<header> About IQRASOFT </header>
+<div class="border"></div>
+<p>
+We're IQRA APP an international registered company which has over 5 (Five) operational department in the ess world and operating successful with the  since the year 2019 till date.
+</p>
+</section>
+
+<section>
+<header> Resources </header>
+<div class="border"></div>
+</section>
+
+<section>
+<header> Other Models </header>
+<div class="border"></div>
+</section>
+
+<section>
+<header> Contact Us </header>
+<div class="border"></div>
+</section>
+
+</div>
+</div>
+
+<style>
+#credits { background:#000; padding:1.3rem 0.5rem; }
+#credits .inner { max-width:1200px; margin:0 auto; color:#e3e3e3; display:flex; justify-content:space-between; align-items:center; }
+
+#credits .smi { display:flex; }
+#credits .smi a { display:inline-block; padding:0 0.5rem;  }
+#credits .smi img { display:block; width:1.25rem; }
+</style>
+<div id="credits"><div class="inner">
+<section> &copy; 2023 Iqra Apps </section>
+<section class="smi">
+
+<a href="#"><img src="{{ url_for('static',filename='svgs/facebook.svg') }}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/youtube.svg') }}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/tiktok.svg')}}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/instagram.svg') }}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/linkedin.svg') }}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/twitter.svg') }}" alt="" /></a>
+
+</section>
+</div></div>
+
+
+</body>
+
+
+</html>

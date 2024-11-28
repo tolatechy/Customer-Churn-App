@@ -1,0 +1,411 @@
+<!doctype html>
+<html>
+
+<head>
+<title> Home - Iqra apps </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+ <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,700&swap" rel="stylesheet">  
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box; font-family:"Titillium web", sans-serif; }
+a{text-decoration:none; }
+ul,li{list-style:none; }
+#sitename { font-size:300%; font-weight:700; color:tomato; text-shadow:0 0 3px #000; display:none; }
+#logo { display:inline-block; width:15rem; padding:0.5rem 0 }
+html{scroll-behavior:smooth; }
+</style>
+</head>
+
+<body>
+
+<style>
+#navdiv { box-shadow:0 1px 3px 3px #ddd; position:sticky; top:0; z-index:2; background:#fff; }
+#navdiv .inner { display:flex; max-width:1200px; margin:0 auto; justify-content:space-between; align-items:center; }
+#mainnav li { display:inline-block; }
+#mainnav a { display:block; padding:0.5rem 1.2rem; font-weight:700; color:#446; }
+#mainnav { display:flex; align-items:center; flex-direction:row; }
+
+#login { background:tomato; color:#fff!important; border:1px solid tomato; margin-left:1rem;  }
+</style>
+
+<div id="navdiv"><div class="inner">
+
+<img id="logo" src="{{ url_for('static',filename='img/logo.png')}}" />
+<nav id="mainnav">
+<ul>
+<li><a href="./"> Home </a></li>
+<li><a href="./about"> About Us </a></li>
+<li><a href="./predict"> Predict </a></li>
+<li><a href="./explore"> Explore </a></li>
+<li><a href="./process"> Proceedure </a></li>
+<li><a href="./summary"> Summary </a></li>
+<li></li>
+</ul>
+</nav>
+
+
+</div></div>
+
+
+
+<style>
+#slidediv { background:#000; }
+#slidediv .inner { display:flex; align-items:stretch; flex-flow:row wrap;}
+
+#slidediv section.info { width:45%; display:flex; flex-direction:column; justify-content:center; align-items:center; color:#fff; }
+#slidediv .info header { font-weight:700; font-size:280%; line-height:1.2 }
+#slidediv .info div { max-width:700px; text-align:center; padding:1.5rem }
+
+
+#slidediv section.img {width:55%; min-height:80vh; }
+#slidediv .img { background-position:center; background-size:cover; background-image:url({{ url_for('static',filename='img/rob.png') }}); }
+
+#slidediv a { display:inline-block; padding:0.5em 2em; background:crimson; font-weight:700; color:#fff; font-size:130%; margin:1.5rem; border-radius:1.5rem; text-transform:uppercase; text-shadow:0 0 2px #000; }
+
+#slidediv a:hover{ background:#fff; color:#444; text-shadow:none;  }
+</style>
+
+<div id="slidediv">
+<div class="inner">
+
+<section class="info">
+<div>
+<header> ADVANCED ML SOFTWARE powered by Random Forest for realtime customer churn prediction </header> 
+
+<a href="./predict"> Predict </a>
+
+
+</div>
+</section>
+<section class="img"></section>
+
+
+</div>
+</div>
+
+<style>
+#intro { padding:6rem 0; }
+#intro .inner { display:flex; flex-flow:row wrap; justify-content:center; align-items:stretch; max-width:1200px; margin:0 auto; }
+#intro .inner > section { width:50%; min-height:500px; }
+#intro .img { background-image:url({{ url_for('static',filename='img/services.png') }}); background-position:center; background-size:cover; }
+
+#intro .info { display:flex; flex-direction:column; align-items:center; justify-content:center; }
+#intro .info > div { max-width:450px; }
+#intro .info h2 { color:#446; font-size:300%; line-height:1.2 }
+#intro .info p {padding:1.2rem 0; color:#555; font-size:150%; }
+#intro a { display:inline-block; padding:0.5rem 1.2rem; border:1px solid #444; color:#444; border-radius: 1.5rem; margin-right:1.5rem; }
+#intro a.start { background:tomato; color:#fff; font-weight:700; border:1px solid tomato; }
+</style>
+
+
+<div id="intro">
+<div class="inner">
+
+
+<section class="info"><div>
+<h2> We are the world's leading machine learning company </h2>
+<p>
+With the help of Machine Learning today, we are able to supply the needed information that will help you grow and maximize your business profits 
+</p>
+
+<a href="./about"> Learn more </a><a class="start" href="#"> Get started for free </a>
+</div>
+</section>
+<section class="img"></section>
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+<style>
+#plinks { padding:3em 0.5rem; }
+#plinks .inner {display:flex; flex-flow:row wrap; justify-content:space-around; align-items:stretch; max-width:1200px; margin:0 auto}
+#plinks .inner > section { width:22%; margin:1.5rem 1.5%; box-shadow: 0 0 3px 2px #ddd; border-radius:5px; padding:1.5rem; position:relative; padding-bottom:3.5rem; }
+
+#plinks section img { display:block; width:4em; margin:1rem; }
+#plinks section header { display:block; font-size:120%; color:#446; font-weight:700; text-transform:uppercase }
+#plinks section p { line-height:1.6; padding:1.2rem 0 2rem; color:#777; }
+#plinks section a { display:inline-block; color:tomato; padding:0.5rem 1.3rem; border-radius:4px; border:1px solid tomato; font-weight:700; position:absolute; left:1.5rem; bottom:1rem; }
+
+#plinks section a:hover { background:tomato; color:#fff } 
+
+
+@media( max-width:1000px){
+
+#plinks .inner > section { width:45%; margin:1.5rem 2.5%; }
+}
+
+</style>
+
+<div id="plinks">
+
+<div class="inner">
+
+<section>
+<img src="{{ url_for('static',filename='svg/airplane.svg')}}" alt="" />
+<header> Predict  </header>
+<p>
+You can use the model to predict whether an employee will stay or not
+</p>
+
+<a href="./predict"> Predict </a>
+</section>
+
+<section>
+<img src="{{ url_for('static',filename='svg2/analysis.svg')}}" alt="" />
+<header> Explore </header>
+<p>
+See various visualisations of the datasets used for training our model
+</p>
+
+<a href="./explore"> Explore </a>
+</section>
+
+<section>
+<img src="{{ url_for('static',filename='svg2/chart.svg')}}" alt="" />
+<header> Process </header>
+<p>
+See various visualisations of the datasets used for training our model
+</p>
+
+<a href="./process"> Process </a>
+</section>
+
+<section>
+<img src="{{ url_for('static',filename='svg2/coding.svg')}}" alt="" />
+<header> Summary </header>
+<p>
+See various visualisations of the datasets used for training our model
+</p>
+
+<a href="./summary"> Summary </a>
+</section>
+
+
+</div>
+</div>
+
+
+<style>
+#solutions{ padding:4em 0.5rem; }
+#solutions .inner { max-width:1200px; margin:0 auto; display:flex; flex-flow:row wrap; align-items:stretch; }
+#solutions .inner section { width:30%; margin:1.5rem 1.5%; padding:2rem; background-image:linear-gradient(45deg, #fafafa, #f3f3ff) }
+#solutions > h2 { font-size:250%; color:#446; text-align:center; }
+#solutions > p { max-width:800px; margin:0 auto; color:#777; line-height:1.6; margin-bottom:1.5rem; text-align:center; }
+#solutions header { color:#446; font-weight:700; font-size:120%; }
+#solutions section p { color:#777; padding:0.5rem 0; line-height:1.5; }
+#solutions section a { color:tomato; display:inline-block; font-weight:700; color:tomato; border-bottom:1px solid tomato;  }
+</style>
+
+<div id="solutions">
+
+<h2> Our Featured Solutions </h2>
+<p> Here are the main services we render </p> 
+<div class="inner">
+
+<section>
+<header> Robotic Automation </header>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+ accumsan non quam. Nam consectetur porttitor rhoncus.
+</p>
+<a href="#"> Learn more </a>
+</section>
+
+<section>
+<header> Machine Learning </header>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+ accumsan non quam. Nam consectetur porttitor rhoncus.
+</p>
+<a href="#"> Learn more </a>
+</section>
+
+<section>
+<header> Cognitive Recognision </header>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+ accumsan non quam. Nam consectetur porttitor rhoncus.
+</p>
+<a href="#"> Learn more </a>
+</section>
+
+
+
+</div>
+</div>
+
+
+
+
+<style>
+#clients { padding: 4rem 0.5rem; }
+#clients .inner { margin:0 auto; max-width:1000px; display:flex; flex-flow:row wrap; justify-content:center; align-items:strecth; }
+
+#clients .inner section { width:50%; padding:1rem 1.52rem; display:flex; flex-direction:column; justify-content:space-between; }
+
+#clients .info h3 { color:#446; font-size:200%; }
+#clients .info p { color:#777; font-size:120%; }
+#clients .info img { width:100%; display:block; }
+
+#clients .listings div { display:flex; flex-flow:row wrap; align-items:flex-start; margin-bottom:1rem }
+#clients .listings div p { flex:1; padding:1rem; border-radius:10px; border:1px solid #ccc; }
+#clients .listings div img { display:block; width:4rem; border-radius:50%; margin-left:1.5rem; }
+#clients .listings div:nth-child(even) img { order:-1; margin-left:0; margin-right:1.5rem; }
+</style>
+
+<div id="clients">
+<div class="inner">
+
+<section class="info">
+<h3> What Clients Say About Us </h3>
+<p>Listen to what our esteemed clients have to say </p>
+<img src="{{ url_for('static',filename='img/clients.png') }}" alt="" />
+</section>
+
+<section class="listings">
+<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+ accumsan</p><img src="{{ url_for('static',filename='img//p1.jpg') }}" alt="" /></div>
+ 
+<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+ accumsan</p><img src="{{ url_for('static',filename='img/iqra.jpg')}}" alt="" /></div>
+ 
+<div><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla est purus, ultrices in porttitor
+ accumsan</p><img src="{{ url_for('static',filename='p2.jpg') }}" alt="" /></div>
+
+</section>
+
+</div>
+</div>
+
+
+
+
+
+
+<style>
+#newsletter { background:#f3f3f3; font-size:120%; padding:2em 0.5em; line-height:1.2; background:#fff; }
+#newsletter .inner { display:flex; flex-flow:row wrap; align-items:center; max-width:1100px; margin:0 auto; }
+#newsletter .inner > section { width:50%; padding:1em; }
+
+#newsletterform { width:100%; display:flex; flex-flow:row wrap; align-items:stretch; box-shadow:0 0 2px 2px #d5d5d5; }
+#newsletterform input { background:#fff; padding:1.2em 0.5em; flex:1; border:none; border-radius:4px 0 0 4px; }
+#newsletterform input:focus { outline:none; }
+#newsletterform button { border:none; border-radius:0 4px 4px 0; background:tomato; display:inline-block; padding:1.2em 3em; background:tomato; color:#fff; font-weight:700; }
+
+#newsletter h3 { color:#446; font-size:120%; }
+#newsletter p { color:#555; font-size:80%; }
+
+@media(max-width:800px){
+#newsletter .inner > section { width:100%; }
+#newsletter .inner > section.newsletterinfo { text-align:center; }
+}
+
+
+@media(max-width:450px){
+#newsletterform { display:block; box-shadow:none; }
+#newsletterform input { width:100%; margin-bottom:1.5em; box-shadow:0 0 2px 2px #ccc; }
+#newsletterform button { width:100%; text-align:center; }
+}
+
+</style>
+
+<div id="newsletter">
+<div class="inner">
+
+<section class="newsletterinfo">
+<h3>Subscribe to our newsletter </h3>
+<p>Signup with your email address to receive news & updates </p>
+</section>
+<section>
+<form method="post" id="newsletterform" action="">
+<input type="email" name="cemail" required placeholder="Your email address" />
+<input style="display:none" type="text" name="code" value="" />
+<button type="submit" name="submit" value="submit"> SUBSCRIBE </button>
+</form>
+</section>
+
+</div>
+</div>
+
+
+
+
+<style>
+#footer { background:#000; padding:2rem 0.5rem; }
+#footer .inner { display:flex; flex-flow:row wrap; margin:0 auto; max-width:1200px; align-items:stretch; }
+#footer .inner > section { width:22%; margin:1.2rem 1.5%; }
+
+#footer header { color:#fff; font-weight:700; padding:0.5rem 0; font-size:110%; }
+#footer .border { width:3.47rem; height:3px; background:tomato; }
+
+#footer p { line-height:1.6; color:#e3e3e3; padding:1.5rem 0 }
+
+</style>
+
+<div id="footer">
+<div class="inner">
+
+<section>
+<header> About IQRASOFT </header>
+<div class="border"></div>
+<p>
+We're IQRA APP an international registered company which has over 5 (Five) operational department in the ess world and operating successful with the  since the year 2019 till date.
+</p>
+</section>
+
+<section>
+<header> Resources </header>
+<div class="border"></div>
+</section>
+
+<section>
+<header> Other Models </header>
+<div class="border"></div>
+</section>
+
+<section>
+<header> Contact Us </header>
+<div class="border"></div>
+</section>
+
+</div>
+</div>
+
+<style>
+#credits { background:#000; padding:1.3rem 0.5rem; }
+#credits .inner { max-width:1200px; margin:0 auto; color:#e3e3e3; display:flex; justify-content:space-between; align-items:center; }
+
+#credits .smi { display:flex; }
+#credits .smi a { display:inline-block; padding:0 0.5rem;  }
+#credits .smi img { display:block; width:1.25rem; }
+</style>
+<div id="credits"><div class="inner">
+<section> &copy; 2023 Iqra Apps </section>
+<section class="smi">
+
+<a href="#"><img src="{{ url_for('static',filename='svgs/facebook.svg')}}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/youtube.svg')}}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/tiktok.svg')}}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/instagram.svg')}}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/linkedin.svg')}}" alt="" /></a>
+<a href="#"><img src="{{ url_for('static',filename='svgs/twitter.svg')}}" alt="" /></a>
+
+</section>
+</div></div>
+
+
+</body>
+
+
+</html>
